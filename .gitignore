@@ -2,4 +2,4 @@
 *
 
 !.gitignore
-!new_addons
+!new_addons/*
