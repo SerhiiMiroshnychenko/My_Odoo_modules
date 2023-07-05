@@ -1,2 +1,4 @@
 # Ignore all files in the odoo1 directory
 *
+
+!.gitignore
