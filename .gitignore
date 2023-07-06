@@ -5,4 +5,5 @@
 !new_addons/
 !new_addons/estate/
 !new_addons/estate/*
+!new_addons/models/
 !new_addons/models/*
