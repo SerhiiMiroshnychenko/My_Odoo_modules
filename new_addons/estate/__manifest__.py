@@ -9,6 +9,7 @@
     'author': 'Serhii Miroshnychenko',
     'license': 'LGPL-3',
     'data': [
+        'security/ir.model.access.csv',
     ],
     'installable': True,
     'application': True,
