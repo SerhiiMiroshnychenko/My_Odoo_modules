@@ -8,4 +8,5 @@
 !new_addons/estate/*
 !new_addons/estate/models/*
 !new_addons/estate/security/*
+!new_addons/estate/views/
 !new_addons/estate/views/*
