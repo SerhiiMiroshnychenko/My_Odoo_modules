@@ -4,10 +4,13 @@
 !.gitignore
 !HELP.md
 
+!new_addons/
 !new_addons/*
+!new_addons/estate/
 !new_addons/estate/*
+!new_addons/estate/models/
 !new_addons/estate/models/*
+!new_addons/estate/security/
 !new_addons/estate/security/*
-!/new_addons/estate/views/
-!/new_addons/estate/views/estate_menus.xml
-!/new_addons/estate/views/estate_property_views.xml
+!new_addons/estate/views/
+!new_addons/estate/views/*
