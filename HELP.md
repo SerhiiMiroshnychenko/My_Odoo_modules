@@ -1,7 +1,7 @@
 # HELP
 
-`PS D:\PROJECTS\MyOdoo\odoo1> python odoo-bin -c odoo.conf -u estate`
-Запуск серверу Odoo з оновленням модулю "estate".
+`PS D:\PROJECTS\MyOdoo\odoo1> python odoo-bin -c odoo.conf -u estate --dev xml`
+Запуск серверу Odoo з оновленням модулю "estate" та автоматичним оновленням xml подання.
 
 `ls -R new_addons`
 Ця команда виведе дерево директорії "new_addons" та всіх піддиректорій та файлів у них.
