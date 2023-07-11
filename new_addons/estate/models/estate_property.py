@@ -57,8 +57,6 @@ class EstateProperty(models.Model):
     @api.depends("living_area", "garden_area")
     def _compute_total_area(self):
         for estate in self:
-            print(estate.title)  # TODO Убрати після налагодження
-            print(estate.best_price)  # TODO Убрати після налагодження
             estate.total_area = estate.living_area + estate.garden_area
 
 
@@ -69,3 +67,8 @@ class EstateProperty(models.Model):
         for estate in self:
             estate.best_price = max(estate.offer_ids.mapped('price'))\
                 if estate.offer_ids else 0
+
+    @api.onchange("garden")
+    def _onchange_garden(self):
+        self.garden_area = 10 if self.garden else 0
+        self.garden_orientation = 'north'
