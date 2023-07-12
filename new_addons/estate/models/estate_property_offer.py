@@ -1,6 +1,7 @@
 from odoo import api, fields, models
 from datetime import date
 from dateutil.relativedelta import relativedelta
+from odoo.exceptions import UserError
 
 
 class EstatePropertyOffer(models.Model):
@@ -51,4 +52,21 @@ class EstatePropertyOffer(models.Model):
                   f'Date difference: {date_difference}\n'
                   f'Validity (days): {offer.validity}')
 
+    def action_accept(self):
+        print('self.property_id.best_price ==', self.property_id.selling_price)
+        if self.property_id.selling_price == 0:
+            self.status = 'accepted'
+            self.property_id.selling_price = self.price
+            self.property_id.buyer_id = self.partner_id
+            return True
+        raise UserError("No more than one offer may be accepted.")
+
+    def action_refuse(self):
+        self.status = 'refused'
+        for offer in self.property_id.offer_ids:
+            if offer.status == 'accepted':
+                return True
+        self.property_id.selling_price = 0
+        self.property_id.buyer_id = None
+        return True
 
