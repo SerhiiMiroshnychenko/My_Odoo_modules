@@ -8,7 +8,7 @@ class EstatePropertyOffer(models.Model):
     _name = "estate.property.offer"
     _description = "A model representing offers for real estate objects"
 
-    price = models.fields.Float()
+    price = fields.Float()
     status = fields.Selection(
         copy=False,
         selection=[
@@ -69,4 +69,10 @@ class EstatePropertyOffer(models.Model):
         self.property_id.selling_price = 0
         self.property_id.buyer_id = None
         return True
+
+    _sql_constraints = [
+        ('check_price',
+         'CHECK(price > 0)',
+         'The offer price must be strictly more then 0.')
+    ]
 
