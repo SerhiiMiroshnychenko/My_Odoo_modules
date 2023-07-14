@@ -6,19 +6,26 @@
             <field name="arch" type="xml">
                 <form string="Properties">
                     <header>
-                        <button name="action_set_canceled_status" type="object" string="Cancel"/>
-                        <button name="action_set_sold_status" type="object" string="Sold"/>
+                        <button name="action_set_canceled_status" type="object" string="Cancel"
+                                attrs="{'invisible': [('state', 'in', ['sold', 'canceled'])]}"/>
+                        <button name="action_set_sold_status" type="object" string="Sold"
+                                attrs="{'invisible': [('state', 'in', ['sold', 'canceled'])]}"/>
                         <field name="state"
                                widget="statusbar"
                                statusbar_visible="new,offer received,offer accepted,sold,canceled"/>
                     </header>
                     <sheet>
                         <h1><field name="title"/></h1>
-                        <field name="tag_ids" widget="many2many_tags"/>
+                        <field name="tag_ids"
+                               widget="many2many_tags"
+                               options="{'color_field': 'color'}"/>
                         <group>
                             <group>
                                 <field name="state"/>
-                                <field name="property_type_id" string="Property Type"/>
+                                <field name="property_type_id"
+                                       string="Property Type"
+                                       options="{'no_create': True}"
+                                       />
                                 <field name="postcode"/>
                                 <field name="date_availability" string="Available From"/>
                             </group>
@@ -36,9 +43,17 @@
                                         <field name="facades"/>
                                         <field name="garage"/>
                                         <field name="garden"/>
-                                        <field name="garden_area" string="Garden Area (sqm)"/>
-                                        <field name="garden_orientation" string="Garden Orientation"/>
-                                        <field name="total_area" string="Total Area (sqm)"/>
+                                        <field name="garden_area"
+                                               string="Garden Area (sqm)"
+                                               attrs="{'invisible': [('garden', '=', False)]}"
+                                        />
+                                        <field name="garden_orientation"
+                                               string="Garden Orientation"
+                                               attrs="{'invisible': [('garden', '=', False)]}"
+                                        />
+                                        <field name="total_area" string="Total Area (sqm)"
+
+                                        />
                                         <field name="active"/>
                                     </group>
                                 </page>
