@@ -8,6 +8,9 @@
                     <header>
                         <button name="action_set_canceled_status" type="object" string="Cancel"/>
                         <button name="action_set_sold_status" type="object" string="Sold"/>
+                        <field name="state"
+                               widget="statusbar"
+                               statusbar_visible="new,offer received,offer accepted,sold,canceled"/>
                     </header>
                     <sheet>
                         <h1><field name="title"/></h1>

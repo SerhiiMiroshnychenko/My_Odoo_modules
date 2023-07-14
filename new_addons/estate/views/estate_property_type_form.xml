@@ -7,6 +7,19 @@
                 <form string="Property Types">
                     <sheet>
                         <h1><field name="name"/></h1>
+                        <notebook>
+                            <page string="Properties">
+                                        <group>
+                                            <field name="property_ids" string="">
+                                                <tree default_order="id">
+                                                    <field name="title"/>
+                                                    <field name="expected_price"/>
+                                                    <field name="state"/>
+                                                </tree>
+                                            </field>
+                                        </group>
+                                    </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>
