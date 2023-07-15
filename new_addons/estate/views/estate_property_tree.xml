@@ -4,15 +4,24 @@
             <field name="name">estate.property.tree</field>
             <field name="model">estate.property</field>
             <field name="arch" type="xml">
-                <tree string="Estates">
+                <tree string="Estates"
+                      decoration-success="best_price > 0"
+                      decoration-bf="state=='offer accepted'"
+
+                >
                     <field name="title"/>
                     <field name="postcode"/>
                     <field name="bedrooms"/>
                     <field name="living_area" string="Living Area (sqm)"/>
                     <field name="expected_price"/>
                     <field name="selling_price"/>
-                    <field name="date_availability" string="Available From"/>
+                    <field name="date_availability"
+                           string="Available From"
+                           optional="True"/>
                     <field name="property_type_id" string="Type"/>
+                    <field name="best_price" invisible="1"/>
+                    <field name="state" invisible="1"/>
+
                 </tree>
             </field>
         </record>

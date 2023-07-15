@@ -12,7 +12,10 @@
                                 attrs="{'invisible': [('state', 'in', ['sold', 'canceled'])]}"/>
                         <field name="state"
                                widget="statusbar"
-                               statusbar_visible="new,offer received,offer accepted,sold,canceled"/>
+                               statusbar_visible="new,offer received,offer accepted,sold,canceled"
+                               readonly='1'
+                        />
+
                     </header>
                     <sheet>
                         <h1><field name="title"/></h1>
@@ -59,7 +62,12 @@
                                 </page>
                                 <page string="Offers">
                                     <group>
-                                        <field name="offer_ids" string=""/>
+                                        <field name="offer_ids"
+                                               string=""
+                                               attrs="{'readonly':
+                                                [('state', 'in',
+                                                ['offer accepted', 'sold', 'canceled'])]}"
+                                        />
                                     </group>
                                 </page>
                                 <page string="Other Info">

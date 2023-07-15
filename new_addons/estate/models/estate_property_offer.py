@@ -57,6 +57,7 @@ class EstatePropertyOffer(models.Model):
         print('self.property_id.best_price ==', self.property_id.selling_price)
         if self.property_id.selling_price == 0:
             self.status = 'accepted'
+            self.property_id.state = 'offer accepted'
             self.property_id.selling_price = self.price
             self.property_id.buyer_id = self.partner_id
             return True
@@ -64,11 +65,11 @@ class EstatePropertyOffer(models.Model):
 
     def action_refuse(self):
         self.status = 'refused'
-        for offer in self.property_id.offer_ids:
-            if offer.status == 'accepted':
-                return True
-        self.property_id.selling_price = 0
-        self.property_id.buyer_id = None
+        # for offer in self.property_id.offer_ids:
+        #     if offer.status == 'accepted':
+        #         return True
+        # self.property_id.selling_price = None
+        # self.property_id.buyer_id = None
         return True
 
     _sql_constraints = [
