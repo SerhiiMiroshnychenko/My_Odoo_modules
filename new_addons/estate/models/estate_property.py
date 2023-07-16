@@ -86,6 +86,7 @@ class EstateProperty(models.Model):
         if self.state == 'sold':
             raise UserError("Sold properties cannot be canceled.")
         self.state = 'canceled'
+        self.active = False
         return True
 
 
@@ -93,6 +94,7 @@ class EstateProperty(models.Model):
         if self.state == 'canceled':
             raise UserError("Canceled properties cannot be sold.")
         self.state = 'sold'
+        self.active = False
         return True
 
     _sql_constraints = [

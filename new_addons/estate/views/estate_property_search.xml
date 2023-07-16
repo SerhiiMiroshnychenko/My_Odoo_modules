@@ -9,7 +9,9 @@
                 <field name="postcode"/>
                 <field name="expected_price"/>
                 <field name="bedrooms"/>
-                <field name="living_area" string="Living Area (sqm)"/>
+                <field name="living_area" string="Living Area (sqm)"
+                filter_domain="[('living_area', '>=', self)]"
+                />
                 <field name="facades"/>
                 <field name="property_type_id" string="Type"/>
                 <separator/>
@@ -20,7 +22,9 @@
                          '|',
                           ('state', '=', 'new'),
                             ('state', '=', 'offer received')
-                            ]"/>
+                            ]"
+                        context="{'search_default_inactive': 1}"
+                />
                 <group expand="1" string="Group By">
                     <filter string="Postcode"
                             name="postcode"

@@ -13,18 +13,18 @@
                     <field name="validity"/>
                     <field name="date_deadline"/>
                     <button name="action_refuse"
-                            string="Refuse"
+                            string=" "
                             type="object"
                             icon="fa-remove"
                             attrs="{'invisible': [('status', 'in', ['accepted', 'refused'])]}"
                             />
                     <button name="action_accept"
-                            string="Accept"
+                            string=" "
                             type="object"
                             icon="fa-check"
                             attrs="{'invisible': [('status', 'in', ['accepted', 'refused'])]}"
                             />
-                    <field name="status"/>
+                    <field name="status" invisible="1"/>
                 </tree>
             </field>
         </record>
