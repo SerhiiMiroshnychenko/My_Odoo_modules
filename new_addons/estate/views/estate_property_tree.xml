@@ -7,6 +7,8 @@
                 <tree string="Estates"
                       decoration-success="best_price > 0"
                       decoration-bf="state=='offer accepted'"
+                      decoration-it="state=='offer received'"
+
                 >
                     <field name="title"/>
                     <field name="property_type_id" string="Property Type"/>
