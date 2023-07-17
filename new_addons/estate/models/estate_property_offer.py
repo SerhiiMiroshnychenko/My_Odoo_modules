@@ -26,6 +26,7 @@ class EstatePropertyOffer(models.Model):
     property_id = fields.Many2one(
         "estate.property",
         required=True,
+        ondelete='cascade'
         #inverse_name='offer_ids'
     )
 
