@@ -49,6 +49,14 @@ class EstatePropertyOffer(models.Model):
             offer.date_deadline = create_date + relativedelta(
                 days=offer.validity)
 
+    @api.constrains('price')
+    def _check_price(self):
+        max_price = max(offer.price for offer in self.property_id.offer_ids)
+        print(f'{max_price=}')
+        print(f'{self.price=}')
+        if self.price < max_price:
+            raise UserError(f"The offer must be more than {max_price}")
+
     def _inverse_date_deadline(self):
         for offer in self:
             create_date = offer.create_date or date.today()

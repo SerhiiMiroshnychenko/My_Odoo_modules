@@ -20,6 +20,7 @@
         'views/estate_property_type_form.xml',
         'views/estate_property_offer_tree.xml',
         'views/estate_property_offer_form.xml',
+        'views/res_users_views.xml',
     ],
     'installable': True,
     'application': True,
