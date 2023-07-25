@@ -16,3 +16,5 @@
 !new_addons/estate/views/*
 !new_addons/estate_account/
 !new_addons/estate_account/*
+!new_addons/estate_account/models/
+!new_addons/estate_account/models/*

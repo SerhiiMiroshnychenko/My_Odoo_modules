@@ -101,6 +101,7 @@ class EstateProperty(models.Model):
             raise UserError("Canceled properties cannot be sold.")
         self.state = 'sold'
         self.active = False
+        print(f'{self.title} is sold! (In Estate)')
         return True
 
     _sql_constraints = [
