@@ -4,24 +4,27 @@
             <field name="name">estate.property.kanban</field>
             <field name="model">estate.property</field>
             <field name="arch" type="xml">
-                <kanban>
+                <kanban default_group_by="property_type_id"
+                        records_draggable="false"
+                        quick_create="false"
+                >
                     <field name="state"/>
                     <templates>
                         <t t-name="kanban-box">
                             <div class="oe_kanban_global_click">
-                                <field name="title"/>
-                            </div>
-                            <div t-if="record.state.raw_value == 'new'">
-                                This is new!
-                            </div>
-                            <div>
-                                <field name="expected_price"/>
-                                <field t-if="record.best_price != 0"
-                                       name="best_price"
-                                       string="Best price: "
-                                />
-                                <field name="selling_price"/>
-                                <field name="tag_ids"/>
+                                <h3><field name="title"/></h3>
+                                <p t-if="record.state.raw_value == 'new'"
+                                   style="color: royalblue"><i>This is new!</i></p>
+
+                                <t>Expected Price: <field name="expected_price"/></t>
+                                <t t-if="record.best_price.raw_value != 0"><br/>Best Price: <field
+                                        name="best_price"/></t>
+                                <t t-if="record.state.raw_value == 'offer accepted'"><br/>Selling Price: <field
+                                        name="selling_price"/></t>
+
+                                <field name="tag_ids"
+                                       widget="many2many_tags"
+                                       options="{'color_field': 'color'}"/>
                             </div>
                         </t>
                     </templates>
